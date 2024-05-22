@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'jogo_velha.dart';
 import 'jogo_forca.dart';
+import 'jogo_termo.dart';
 
 const Color darkBlue = Color.fromARGB(255, 18, 32, 47);
 
@@ -69,7 +70,14 @@ class _MyWidgetState extends State<MyWidget> {
                           Expanded(
                             child: _buildImageButton(
                               'assets/images/termo.png',
-                                  () {},
+                                  () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => JogoTermo(),
+                                      ),
+                                    );
+                                  },
                             ),
                           ),
                         ],
