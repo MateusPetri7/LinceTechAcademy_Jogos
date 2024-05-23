@@ -12,33 +12,48 @@ void main() {
 }
 
 class PaginaDeJogos extends StatelessWidget {
+  const PaginaDeJogos({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: '/',
+      routes: {
+        '/': (context) => TelaPaginaDeJogos(),
+        '/jogovelha': (context) => JogoVelha(),
+        '/jogoforca': (context) => JogoForca(),
+        '/jogotermo': (context) => JogoTermo(),
+      },
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: darkBlue,
       ),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    );
+  }
+}
+
+class TelaPaginaDeJogos extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
         appBar: AppBar(
           title: Center(
             child: Text('Página de Jogos'),
           ),
         ),
         body: Center(
-          child: MyWidget(),
+          child: HomeJogos(),
         ),
-      ),
     );
   }
 }
 
-class MyWidget extends StatefulWidget {
+class HomeJogos extends StatefulWidget {
   @override
-  State<MyWidget> createState() => _MyWidgetState();
+  State<HomeJogos> createState() => _HomeJogosState();
 }
 
-class _MyWidgetState extends State<MyWidget> {
+class _HomeJogosState extends State<HomeJogos> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,12 +73,7 @@ class _MyWidgetState extends State<MyWidget> {
                             child: _buildImageButton(
                               'assets/images/jogoVelha.png',
                                   () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => JogoVelha(),
-                                  ),
-                                );
+                                Navigator.pushNamed(context, '/jogovelha');
                               },
                             ),
                           ),
@@ -71,12 +81,7 @@ class _MyWidgetState extends State<MyWidget> {
                             child: _buildImageButton(
                               'assets/images/termo.png',
                                   () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => JogoTermo(),
-                                      ),
-                                    );
+                                    Navigator.pushNamed(context, '/jogotermo');
                                   },
                             ),
                           ),
@@ -90,12 +95,7 @@ class _MyWidgetState extends State<MyWidget> {
                             child: _buildImageButton(
                               'assets/images/forca0.png',
                                   () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => JogoForca(),
-                                  ),
-                                );
+                                Navigator.pushNamed(context, '/jogoforca');
                               },
                             ),
                           ),
