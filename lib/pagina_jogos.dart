@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'pagina_batalha_naval.dart';
 import 'jogo_velha.dart';
 import 'jogo_forca.dart';
 import 'jogo_termo.dart';
@@ -23,6 +24,7 @@ class PaginaDeJogos extends StatelessWidget {
         '/jogovelha': (context) => JogoVelha(),
         '/jogoforca': (context) => JogoForca(),
         '/jogotermo': (context) => JogoTermo(),
+        '/paginabatalhanaval': (context) => PaginaBatalhaNaval(),
       },
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: darkBlue,
@@ -36,14 +38,14 @@ class TelaPaginaDeJogos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Center(
-            child: Text('Página de Jogos'),
-          ),
+      appBar: AppBar(
+        title: Center(
+          child: Text('Página de Jogos'),
         ),
-        body: Center(
-          child: HomeJogos(),
-        ),
+      ),
+      body: Center(
+        child: HomeJogos(),
+      ),
     );
   }
 }
@@ -72,7 +74,7 @@ class _HomeJogosState extends State<HomeJogos> {
                           Expanded(
                             child: _buildImageButton(
                               'assets/images/jogoVelha.png',
-                                  () {
+                              () {
                                 Navigator.pushNamed(context, '/jogovelha');
                               },
                             ),
@@ -80,9 +82,9 @@ class _HomeJogosState extends State<HomeJogos> {
                           Expanded(
                             child: _buildImageButton(
                               'assets/images/termo.png',
-                                  () {
-                                    Navigator.pushNamed(context, '/jogotermo');
-                                  },
+                              () {
+                                Navigator.pushNamed(context, '/jogotermo');
+                              },
                             ),
                           ),
                         ],
@@ -94,7 +96,7 @@ class _HomeJogosState extends State<HomeJogos> {
                           Expanded(
                             child: _buildImageButton(
                               'assets/images/forca0.png',
-                                  () {
+                              () {
                                 Navigator.pushNamed(context, '/jogoforca');
                               },
                             ),
@@ -102,7 +104,10 @@ class _HomeJogosState extends State<HomeJogos> {
                           Expanded(
                             child: _buildImageButton(
                               'assets/images/batalhaNaval.png',
-                                  () {},
+                              () {
+                                Navigator.pushNamed(
+                                    context, '/paginabatalhanaval');
+                              },
                             ),
                           ),
                         ],
